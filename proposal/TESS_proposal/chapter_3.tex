@@ -1,0 +1,71 @@
+%   Filename    : chapter_4.tex 
+\chapter{Research Methodology}
+This chapter lists and discusses the specific steps and activities that will be performed  to accomplish the project. 
+The discussion covers the activities from pre-proposal to Final SP Writing.
+
+\section{Description and Functionality of TESS}
+TESS is a computerized reading assessment program that will allow students to take the SORT with minimal to no assistance from a teacher. The following steps described were specifically requested and specified by the faculty of ICNHS.
+
+In this computerized SORT, students will read out loud from a randomized list of words flashed to them, word-by-word on the screen.This list of words is predetermined and is categorized by reading level. If the student is deemed correct, the program will proceed with the next word in the list. If the student was incorrect, then the program will remain at the current word.The student is allowed to attempt the word three times, with a timer of 10 seconds per attempt.
+
+Additionally, the faculty of the remediation program wants to decrease the amount of stress and frustration the examinee will experience during the assessment, so TESS includes a built-in timer for each item in the test. Once eleven (11) seconds have passed an item will be skipped, and once ten words in a row have been skipped, the test will end and the examinee’s reading level will be calculated.
+
+A progress bar will also be visible in the bottom, so that students are able to track their progress through the assessment.
+
+The program will also evaluate the students and provide the teacher with an excel sheet for each student containing their results, which includes an itemized list of which words in the SORT they got right and wrong.
+
+The test portion of the program is voice activated, and the examinee can make use of certain keywords to navigate through the test. Such as START to start the test; SKIP to skip a word; and STOP to end the test prematurely.
+
+TESS should be able to run on an offline computer with a headset.
+
+\subsection{Voice Functionality and Collected Voice Data}
+TESS’ voice functionality is the most important part of the program. The speech-to-text program included should be able to function in a school environment and also be able to accurately assess accented English.
+
+Student’s voice will be recorded by the program, assessed, and then discarded. The program does not need to store data of any examinee’s voice to function.
+
+\subsubsection{Other Collected Data}
+TESS will take note of the following information:
+\begin{enumerate}
+\item Student Name
+\item Student’s School
+\item Proctor’s Name
+\end{enumerate}
+This information is used to generate the excel report after the test is finished. TESS does not save this data after the completion of the test.
+
+\section{Developing TESS}
+TESS is developed using Python and a voice recognition software. We are currently testing which software is the most optimal for TESS and will choose amongst the following choices:
+\begin{enumerate}
+\item Vosk,
+\item Wav2Vec, and
+\item Whisper
+\end{enumerate}
+
+The program is also designed to work on a computer with a dedicated headset and microphone.
+
+\section{Testing the Program}
+TESS will be tested at the Iloilo City National High School with a group of ten (10) students within the Remedial Reading Program.
+
+The group will take the SORT twice. First with a faculty member and the second with TESS. Each of these tests will be timed, and the results of these tests will be recorded for comparison.
+After the testing, a focus group discussion will be held to determine what the user experience was like.
+
+TESS will then be compared with Manual SORT along the following metrics:
+\begin{enumerate}
+\item Speed - how fast does each student complete their assessment?
+\item Accuracy - how accurate are the results of each student?
+\item Ease of Use - how easy was the test to be administered / taken?
+\end{enumerate}
+
+The Speed and Accuracy metrics can be determined using the information gathered during the assessment. However, the Ease of Use metric will be derived from a Focus Group Discussion composed of participating students and faculty.
+Consent Forms
+Students participating in the TESS testing will be required to fill out parental consent forms in order to participate. 
+
+\section{Focus Group Discussion Outline}
+The focus group discussion will center around the experience of the faculty and students while using TESS. The discussion will last for around 30 minutes. The following is the set of questions we will use as a guideline for the discussion. 
+
+\begin{enumerate}
+\item What was the experience of using TESS to take the reading test like?
+\item How did using TESS differ from taking / administering SORT manually?
+\item What difficulties did you encounter while using TESS?
+\item Among the three TESS models, which one did you like using most?
+\item If you could add one feature or function to TESS what would it be?
+\end{enumerate}
