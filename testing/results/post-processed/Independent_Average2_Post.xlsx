@@ -1,0 +1,271 @@
+Word,Vosk_Results,Vosk Unprocessed Results,Vosk Processed Results,Vosk Evaluation,Wav2Vec Results,WV Unprocessed Results,WV Processed Results,WV Evaluation
+start,"['start', '']",PASS,100.0,PASS,"['START', '']",PASS,100.0,PASS
+start,['start'],PASS,100.0,PASS,['START'],PASS,100.0,PASS
+start,['start'],PASS,100.0,PASS,['STITE'],FAIL,75.0,PASS
+stop,['stop'],PASS,100.0,PASS,['STOP'],PASS,100.0,PASS
+stop,['stop'],PASS,100.0,PASS,['STOP'],PASS,100.0,PASS
+stop,['stop'],PASS,100.0,PASS,['STOP'],PASS,100.0,PASS
+skip,['skip'],PASS,100.0,PASS,['SKIP'],PASS,100.0,PASS
+skip,['skip'],PASS,100.0,PASS,['SKIP'],PASS,100.0,PASS
+skip,['skip'],PASS,100.0,PASS,['SKIP'],PASS,100.0,PASS
+with,['with'],PASS,100.0,PASS,['WIDS'],FAIL,33.33333333333333,FAIL
+with,['who is'],FAIL,25.0,FAIL,['POLISE'],FAIL,0.0,FAIL
+with,['with'],PASS,100.0,PASS,['LIGE'],FAIL,0.0,FAIL
+friends,['friends'],PASS,100.0,PASS,['FRIENDS'],PASS,100.0,PASS
+friends,['friends'],PASS,100.0,PASS,['SCHRANCE'],FAIL,40.0,FAIL
+friends,['friends'],PASS,100.0,PASS,['FRIENDS'],PASS,100.0,PASS
+came,['came'],PASS,100.0,PASS,['CAME'],PASS,100.0,PASS
+came,['kim'],FAIL,100.0,PASS,['KIM'],FAIL,100.0,PASS
+came,['kim'],FAIL,100.0,PASS,['KIN'],FAIL,50.0,FAIL
+horse,['horace'],FAIL,100.0,PASS,['HORACE'],FAIL,100.0,PASS
+horse,['horace'],FAIL,100.0,PASS,['CHORASE'],FAIL,66.66666666666666,FAIL
+horse,['whores'],FAIL,66.66666666666666,FAIL,['HORSE'],PASS,100.0,PASS
+ride,['right'],FAIL,100.0,PASS,['RIDE'],PASS,100.0,PASS
+ride,['ride'],PASS,100.0,PASS,['RIDE'],PASS,100.0,PASS
+ride,['right'],FAIL,100.0,PASS,['RIDE'],PASS,100.0,PASS
+under,['under'],PASS,100.0,PASS,['UNDER'],PASS,100.0,PASS
+under,['on there'],FAIL,40.0,FAIL,['UNDER'],PASS,100.0,PASS
+under,['under'],PASS,100.0,PASS,['UNDER'],PASS,100.0,PASS
+was,['was'],PASS,100.0,PASS,['LAS'],FAIL,50.0,FAIL
+was,['was'],PASS,100.0,PASS,['WASS'],PASS,100.0,PASS
+was,"['', 'was', 'the', 'yeah', 'was', 'was', '', '']",PASS,100.0,PASS,"['', 'WASS', '', '', 'WAS', 'WAS', '', '']",PASS,100.0,PASS
+what,['what'],PASS,100.0,PASS,['WHAT'],PASS,100.0,PASS
+what,['what'],PASS,100.0,PASS,['WHAT'],PASS,100.0,PASS
+what,['what'],PASS,100.0,PASS,['WO'],FAIL,50.0,FAIL
+bump,['bomb'],FAIL,66.66666666666666,FAIL,"['I', '']",FAIL,0.0,FAIL
+bump,['bomb'],FAIL,66.66666666666666,FAIL,['BOM'],FAIL,66.66666666666666,FAIL
+bump,['bob'],FAIL,33.33333333333333,FAIL,['BAH'],FAIL,33.33333333333333,FAIL
+live,['live'],PASS,100.0,PASS,['LIVES'],PASS,66.66666666666666,FAIL
+live,"['the', 'leaf']",FAIL,100.0,PASS,"['L', '']",FAIL,50.0,FAIL
+live,['the'],FAIL,0.0,FAIL,"['LIVE', '']",PASS,100.0,PASS
+very,['very'],PASS,100.0,PASS,['VERY'],PASS,100.0,PASS
+very,['very'],PASS,100.0,PASS,['FAIRY'],FAIL,100.0,PASS
+very,['very'],PASS,100.0,PASS,['VERY'],PASS,100.0,PASS
+puppy,['puppy'],PASS,100.0,PASS,['PUPBY'],FAIL,66.66666666666666,FAIL
+puppy,['puppy'],PASS,100.0,PASS,['PUPBY'],FAIL,66.66666666666666,FAIL
+puppy,['pub'],FAIL,50.0,FAIL,['PUPPY'],PASS,100.0,PASS
+dark,['dark'],PASS,100.0,PASS,['DIKE'],FAIL,66.66666666666666,FAIL
+dark,['dark'],PASS,100.0,PASS,['DARK'],PASS,100.0,PASS
+dark,['dart'],FAIL,66.66666666666666,FAIL,['DI'],FAIL,33.33333333333333,FAIL
+first,['first'],PASS,100.0,PASS,['FIRST'],PASS,100.0,PASS
+first,['first'],PASS,100.0,PASS,['FIRST'],PASS,100.0,PASS
+first,['first'],PASS,100.0,PASS,['FAIREST'],FAIL,100.0,PASS
+wish,['wish'],PASS,100.0,PASS,['WISH'],PASS,100.0,PASS
+wish,['wish'],PASS,100.0,PASS,['WISH'],PASS,100.0,PASS
+wish,"['wish', '']",PASS,100.0,PASS,"['WISH', '', '']",PASS,100.0,PASS
+basket,"['boss', '']",FAIL,50.0,FAIL,"['BASKET', '']",PASS,100.0,PASS
+basket,['boss'],FAIL,50.0,FAIL,"['BASKET', '']",PASS,100.0,PASS
+basket,['basket'],PASS,100.0,PASS,['BASKET'],PASS,100.0,PASS
+food,['food'],PASS,100.0,PASS,['FUARD'],FAIL,66.66666666666666,FAIL
+food,['food'],PASS,100.0,PASS,['SURELY'],FAIL,0.0,FAIL
+food,['food'],PASS,100.0,PASS,['SUY'],FAIL,0.0,FAIL
+road,"['the', 'fraud', 'road', 'the', 'the']",PASS,100.0,PASS,"['', 'ROAD', 'ROAD', '', '']",PASS,100.0,PASS
+road,['road'],PASS,100.0,PASS,['HER OLD'],FAIL,33.33333333333333,FAIL
+road,['road'],PASS,100.0,PASS,['RIL'],FAIL,50.0,FAIL
+hill,['huh'],FAIL,50.0,FAIL,['HEAL'],FAIL,100.0,PASS
+hill,['huh'],FAIL,50.0,FAIL,['HEL'],FAIL,100.0,PASS
+hill,['huh'],FAIL,50.0,FAIL,['HERE'],FAIL,50.0,FAIL
+along,['alone'],FAIL,75.0,PASS,['ALONE'],FAIL,75.0,PASS
+along,['alone'],FAIL,75.0,PASS,['ALLO'],FAIL,50.0,FAIL
+along,['alone'],FAIL,75.0,PASS,['ALONE'],FAIL,75.0,PASS
+game,['game'],PASS,100.0,PASS,['GAME'],PASS,100.0,PASS
+game,['game'],PASS,100.0,PASS,['GAM'],FAIL,100.0,PASS
+game,['game'],PASS,100.0,PASS,['GAME'],PASS,100.0,PASS
+hide,['hi'],FAIL,50.0,FAIL,['HIDE'],PASS,100.0,PASS
+hide,['hi'],FAIL,50.0,FAIL,['HIDE'],PASS,100.0,PASS
+hide,['hi'],FAIL,50.0,FAIL,['HID'],FAIL,100.0,PASS
+grass,['grass'],PASS,100.0,PASS,['GRASS'],PASS,100.0,PASS
+grass,['grass'],PASS,100.0,PASS,['GRASS'],PASS,100.0,PASS
+grass,['grass'],PASS,100.0,PASS,"['GRASS', '']",PASS,100.0,PASS
+across,['a cross'],FAIL,80.0,PASS,['A CROSS'],FAIL,80.0,PASS
+across,['a cross'],FAIL,80.0,PASS,['ACROSS'],PASS,100.0,PASS
+across,['a cross'],FAIL,80.0,PASS,['A CROSS'],FAIL,80.0,PASS
+around,['are wrong'],FAIL,50.0,FAIL,['I ROUND'],FAIL,60.0,FAIL
+around,['our round'],FAIL,50.0,FAIL,['I ROUN'],FAIL,25.0,FAIL
+around,['around'],PASS,100.0,PASS,['I ROUND'],FAIL,60.0,FAIL
+breakfast,['breakfast'],PASS,100.0,PASS,['BREAKFAST'],PASS,100.0,PASS
+breakfast,['brick f'],FAIL,50.0,FAIL,"['RAK FUSS', '']",FAIL,50.0,FAIL
+breakfast,['breakfast'],PASS,100.0,PASS,['BREAK FUSS'],FAIL,66.66666666666666,FAIL
+field,['field'],PASS,100.0,PASS,['FIELD'],PASS,100.0,PASS
+field,['failed'],FAIL,100.0,PASS,['FILLED'],FAIL,100.0,PASS
+field,['failed'],FAIL,100.0,PASS,['FIELD'],PASS,100.0,PASS
+large,['large'],PASS,100.0,PASS,['LARGE'],PASS,100.0,PASS
+large,"['the', 'large', 'large', '', '']",PASS,100.0,PASS,"['', 'LARGE', 'LARGE', '', '']",PASS,100.0,PASS
+large,['large'],PASS,100.0,PASS,['LARGE'],PASS,100.0,PASS
+better,['better'],PASS,100.0,PASS,['BETTER'],PASS,100.0,PASS
+better,"['better', '']",PASS,100.0,PASS,"['BETTER', '']",PASS,100.0,PASS
+better,['but er'],FAIL,60.0,FAIL,['BETON'],FAIL,66.66666666666666,FAIL
+suddenly,['suddenly'],PASS,100.0,PASS,['SUDDENLY'],PASS,100.0,PASS
+suddenly,['suddenly'],PASS,100.0,PASS,"['SUDDENLY', '']",PASS,100.0,PASS
+suddenly,['suddenly'],PASS,100.0,PASS,['SUDDENLY'],PASS,100.0,PASS
+happen,['happen'],PASS,100.0,PASS,['HUPBEN'],FAIL,75.0,PASS
+happen,['happen'],PASS,100.0,PASS,['HAVE BEEN'],FAIL,40.0,FAIL
+happen,['happen'],PASS,100.0,PASS,['HAD BEEN'],FAIL,40.0,FAIL
+farmer,['farmer'],PASS,100.0,PASS,['FARMER'],PASS,100.0,PASS
+farmer,['farmer'],PASS,100.0,PASS,['FARMER'],PASS,100.0,PASS
+farmer,"['the', 'farmer', '', '', '', 'the', 'farmer', 'farmer', 'the', 'the']",PASS,100.0,PASS,"['', 'FAR WERE', '', '', '', '', 'FARMER', 'FARMER', '', '']",PASS,100.0,PASS
+river,['re'],FAIL,33.33333333333333,FAIL,"['RAVER', '']",FAIL,100.0,PASS
+river,['river'],PASS,100.0,PASS,['HE LIVER'],FAIL,40.0,FAIL
+river,['river'],PASS,100.0,PASS,['RAVER'],FAIL,100.0,PASS
+lunch,['launch'],FAIL,100.0,PASS,['LAUNCH'],FAIL,100.0,PASS
+lunch,['launch'],FAIL,100.0,PASS,['LAUNCH'],FAIL,100.0,PASS
+lunch,['launch'],FAIL,100.0,PASS,['LONCH'],FAIL,100.0,PASS
+sheep,['sheep'],PASS,100.0,PASS,['SHEP'],FAIL,100.0,PASS
+sheep,['sheep'],PASS,100.0,PASS,['SHEEP'],PASS,100.0,PASS
+sheep,['she'],FAIL,50.0,FAIL,['SHE'],FAIL,50.0,FAIL
+hope,['whoa'],FAIL,0.0,FAIL,['HOPE'],PASS,100.0,PASS
+hope,['whoa'],FAIL,0.0,FAIL,[''],FAIL,0.0,FAIL
+hope,['whoa'],FAIL,0.0,FAIL,['HO'],FAIL,50.0,FAIL
+forest,['four'],FAIL,50.0,FAIL,['FORREST'],FAIL,100.0,PASS
+forest,['four'],FAIL,50.0,FAIL,['FOREST'],PASS,100.0,PASS
+forest,['forests'],PASS,80.0,PASS,['FORNIST'],FAIL,80.0,PASS
+stars,['stars'],PASS,100.0,PASS,['STARS'],PASS,100.0,PASS
+stars,['stars'],PASS,100.0,PASS,['STARS'],PASS,100.0,PASS
+stars,['stars'],PASS,100.0,PASS,['STARS'],PASS,100.0,PASS
+heavy,['heavy'],PASS,100.0,PASS,['HEAVY'],PASS,100.0,PASS
+heavy,['heavy'],PASS,100.0,PASS,['HEAVY'],PASS,100.0,PASS
+heavy,['heavy'],PASS,100.0,PASS,['HEAVY'],PASS,100.0,PASS
+station,['station'],PASS,100.0,PASS,['STATION'],PASS,100.0,PASS
+station,['station'],PASS,100.0,PASS,['SPACHON'],FAIL,75.0,PASS
+station,['station'],PASS,100.0,PASS,['STATION'],PASS,100.0,PASS
+safe,['safe'],PASS,100.0,PASS,['SAFE'],PASS,100.0,PASS
+safe,['safe'],PASS,100.0,PASS,['SAFE'],PASS,100.0,PASS
+safe,['safe'],PASS,100.0,PASS,['SAFE'],PASS,100.0,PASS
+against,"['the', 'safe', 'whoa', 'again', 'once again', 'ends', '']",FAIL,60.0,FAIL,"['', 'SAFE', '', 'AGAINSE', 'AGAINSE', '', '']",FAIL,80.0,PASS
+against,['again'],FAIL,60.0,FAIL,['AGAIN'],FAIL,60.0,FAIL
+against,"[""again it's""]",FAIL,57.14285714285714,FAIL,['AGANCE'],FAIL,80.0,PASS
+smash,['splash'],FAIL,50.0,FAIL,['SPLASH'],FAIL,50.0,FAIL
+smash,['smash'],PASS,100.0,PASS,['SMASH'],PASS,100.0,PASS
+smash,['smash'],PASS,100.0,PASS,['SMASH'],PASS,100.0,PASS
+reward,['huh why'],FAIL,0.0,FAIL,['FEEL WY'],FAIL,0.0,FAIL
+reward,['you are'],FAIL,0.0,FAIL,['HE WI'],FAIL,0.0,FAIL
+reward,['why'],FAIL,25.0,FAIL,['HEL WHY'],FAIL,0.0,FAIL
+evening,['is'],FAIL,0.0,FAIL,['EVENING'],PASS,100.0,PASS
+evening,['evening'],PASS,100.0,PASS,['EVENING'],PASS,100.0,PASS
+evening,['his name'],FAIL,20.0,FAIL,['ESMY'],FAIL,20.0,FAIL
+stream,"['two', 'dream']",FAIL,75.0,PASS,"['STREAM', '']",PASS,100.0,PASS
+stream,['stream'],PASS,100.0,PASS,['STREAM'],PASS,100.0,PASS
+stream,['tree'],FAIL,50.0,FAIL,['STREAM'],PASS,100.0,PASS
+empty,['mt'],FAIL,50.0,FAIL,['EMPTY'],PASS,100.0,PASS
+empty,['mt'],FAIL,50.0,FAIL,"['EMPTY', '']",PASS,100.0,PASS
+empty,"['mt', '']",FAIL,50.0,FAIL,"['EMPTY', '']",PASS,100.0,PASS
+stone,['stone'],PASS,100.0,PASS,['STON'],FAIL,100.0,PASS
+stone,['stone'],PASS,100.0,PASS,['STOM'],FAIL,66.66666666666666,FAIL
+stone,['stone'],PASS,100.0,PASS,['STONE'],PASS,100.0,PASS
+grove,['gov'],FAIL,66.66666666666666,FAIL,['GROVE'],PASS,100.0,PASS
+grove,['grove'],PASS,100.0,PASS,['DROVE'],FAIL,66.66666666666666,FAIL
+grove,['girl'],FAIL,33.33333333333333,FAIL,['GROVE'],PASS,100.0,PASS
+desire,['this site'],FAIL,20.0,FAIL,"['DESIRE', '']",PASS,100.0,PASS
+desire,['this sire'],FAIL,40.0,FAIL,['DESIRE'],PASS,100.0,PASS
+desire,"['the', 'decide', 'or desire', '', '']",PASS,66.66666666666666,FAIL,"['', 'DESIRE', 'DESIRE', '', '']",PASS,100.0,PASS
+ocean,['oh shit'],FAIL,25.0,FAIL,['OCEAN'],PASS,100.0,PASS
+ocean,['oh shit'],FAIL,25.0,FAIL,['OCEAN'],PASS,100.0,PASS
+ocean,['ocean'],PASS,100.0,PASS,['OSHIN'],FAIL,66.66666666666666,FAIL
+bench,"['bench', 'she']",PASS,100.0,PASS,"['BENCH', '']",PASS,100.0,PASS
+bench,"['bench', 'she']",PASS,100.0,PASS,"['BENCH', '']",PASS,100.0,PASS
+bench,['bench'],PASS,100.0,PASS,['BENCH'],PASS,100.0,PASS
+damp,['damn'],FAIL,66.66666666666666,FAIL,['DAM'],FAIL,66.66666666666666,FAIL
+damp,['damn'],FAIL,66.66666666666666,FAIL,['DAME'],FAIL,66.66666666666666,FAIL
+damp,['thumb'],FAIL,33.33333333333333,FAIL,['THUMB'],FAIL,33.33333333333333,FAIL
+timid,['time'],FAIL,66.66666666666666,FAIL,['TIMED'],FAIL,100.0,PASS
+timid,['ten'],FAIL,33.33333333333333,FAIL,['TIN'],FAIL,33.33333333333333,FAIL
+timid,['ten'],FAIL,33.33333333333333,FAIL,['GINND'],FAIL,33.33333333333333,FAIL
+perform,"['bro', 'four']",FAIL,40.0,FAIL,"['BAR FLLA', '']",FAIL,20.0,FAIL
+perform,['birthday'],FAIL,20.0,FAIL,"['BRET FING', '']",FAIL,28.57142857142857,FAIL
+perform,['barefoot'],FAIL,40.0,FAIL,['RERFARM'],FAIL,80.0,PASS
+destroy,"['the joy', 'oi']",FAIL,0.0,FAIL,"['THIS JOY', '']",FAIL,25.0,FAIL
+destroy,['this troy'],FAIL,60.0,FAIL,"['DESTROY', '']",PASS,100.0,PASS
+destroy,['this joy'],FAIL,25.0,FAIL,['THIS JOY'],FAIL,25.0,FAIL
+delicious,['delicious'],PASS,100.0,PASS,['DELICIOUS'],PASS,100.0,PASS
+delicious,['delicious'],PASS,100.0,PASS,['DELICIOUS'],PASS,100.0,PASS
+delicious,['delicious'],PASS,100.0,PASS,['DELICIOUS'],PASS,100.0,PASS
+hunger,['hunger'],PASS,100.0,PASS,['HUNGER'],PASS,100.0,PASS
+hunger,['hunger'],PASS,100.0,PASS,['HUNGER'],PASS,100.0,PASS
+hunger,['hunger'],PASS,100.0,PASS,['HUNGER'],PASS,100.0,PASS
+excuse,['x q'],FAIL,20.0,FAIL,"['EXCUSE', '']",PASS,100.0,PASS
+excuse,['excuse'],PASS,100.0,PASS,['EXCUSE'],PASS,100.0,PASS
+excuse,['excuse'],PASS,100.0,PASS,['EXCUSE'],PASS,100.0,PASS
+understood,['understood'],PASS,100.0,PASS,['UNDERSTOOD'],PASS,100.0,PASS
+understood,['unders'],FAIL,71.42857142857143,PASS,['UNDERSTOOD'],PASS,100.0,PASS
+understood,['unders'],FAIL,71.42857142857143,PASS,['UNDERSTOOD'],PASS,100.0,PASS
+harness,['harness'],PASS,100.0,PASS,['HARNESS'],PASS,100.0,PASS
+harness,['harness'],PASS,100.0,PASS,['HARNESS'],PASS,100.0,PASS
+harness,['harness'],PASS,100.0,PASS,['HARNESS'],PASS,100.0,PASS
+price,['price'],PASS,100.0,PASS,['PRICE'],PASS,100.0,PASS
+price,['price'],PASS,100.0,PASS,['PRICE'],PASS,100.0,PASS
+price,['price'],PASS,100.0,PASS,['PRIZE'],FAIL,100.0,PASS
+flakes,"['the', 'flakes', 'ks flakes', 'ps', '']",PASS,100.0,PASS,"['', 'FLAKES', 'FLAKES', '', '']",PASS,100.0,PASS
+flakes,['flakes'],PASS,100.0,PASS,['FLAKES'],PASS,100.0,PASS
+flakes,['flay'],FAIL,50.0,FAIL,['FLAKES'],PASS,100.0,PASS
+silence,['silence'],PASS,100.0,PASS,['SILENCE'],PASS,100.0,PASS
+silence,['silence'],PASS,100.0,PASS,['SILENCE'],PASS,100.0,PASS
+silence,['silence'],PASS,100.0,PASS,"['SILENCE', '']",PASS,100.0,PASS
+develop,['develop'],PASS,100.0,PASS,['DEVELOP'],PASS,100.0,PASS
+develop,['develop'],PASS,100.0,PASS,['DEVELOP'],PASS,100.0,PASS
+develop,['the'],FAIL,0.0,FAIL,['DE VELOP'],FAIL,80.0,PASS
+promptly,"['http', 'from pity']",FAIL,50.0,FAIL,"['PROMPTED', '']",FAIL,83.33333333333334,PASS
+promptly,['promptly'],PASS,100.0,PASS,['PROMPTLY'],PASS,100.0,PASS
+promptly,['prompt but'],FAIL,62.5,FAIL,['PROMPTLY'],PASS,100.0,PASS
+serious,['serious'],PASS,100.0,PASS,['SERIOUS'],PASS,100.0,PASS
+serious,['serious'],PASS,100.0,PASS,['SERIOUS'],PASS,100.0,PASS
+serious,['serious'],PASS,100.0,PASS,['SERIOUS'],PASS,100.0,PASS
+courage,['car'],FAIL,66.66666666666666,FAIL,"['CARAGE', '']",FAIL,100.0,PASS
+courage,['car age'],FAIL,60.0,FAIL,['CORRAGE'],FAIL,100.0,PASS
+courage,['age'],FAIL,33.33333333333333,FAIL,['COURAGE'],PASS,100.0,PASS
+forehead,['for'],FAIL,50.0,FAIL,['FOREHEAD'],PASS,100.0,PASS
+forehead,['forehead'],PASS,100.0,PASS,['FOREHEAD'],PASS,100.0,PASS
+forehead,['for her'],FAIL,60.0,FAIL,['FORHEAD'],FAIL,100.0,PASS
+distant,['this time'],FAIL,20.0,FAIL,['THIS TANT'],FAIL,66.66666666666666,FAIL
+distant,['this time'],FAIL,20.0,FAIL,['THIS DONE'],FAIL,40.0,FAIL
+distant,['this done'],FAIL,40.0,FAIL,['THIS STAN'],FAIL,33.33333333333333,FAIL
+anger,"['a', 'anger']",PASS,100.0,PASS,"['ANGER', '']",PASS,100.0,PASS
+anger,['anger'],PASS,100.0,PASS,"['ANGER', '']",PASS,100.0,PASS
+anger,['anger'],PASS,100.0,PASS,['ANGER'],PASS,100.0,PASS
+vacant,['vic'],FAIL,50.0,FAIL,"['VICAN', '']",FAIL,75.0,PASS
+vacant,['they can'],FAIL,25.0,FAIL,['VICAN'],FAIL,75.0,PASS
+vacant,"['the', 'vegan', 'vegan']",FAIL,75.0,PASS,"['', 'VACIN', 'VACIN']",FAIL,50.0,FAIL
+appearance,['a p'],FAIL,20.0,FAIL,['APPEARANCE'],PASS,100.0,PASS
+appearance,['appearance'],PASS,100.0,PASS,['APPYRANCE'],FAIL,100.0,PASS
+appearance,['a pierre'],FAIL,40.0,FAIL,"['AT PIERS', '']",FAIL,50.0,FAIL
+speechless,['speechless'],PASS,100.0,PASS,['SPEECHLESS'],PASS,100.0,PASS
+speechless,['speechless'],PASS,100.0,PASS,['SPEECH LESS'],FAIL,83.33333333333334,PASS
+speechless,['speechless'],PASS,100.0,PASS,['SPEECHLESS'],PASS,100.0,PASS
+region,['region'],PASS,100.0,PASS,['REGION'],PASS,100.0,PASS
+region,['region'],PASS,100.0,PASS,['REGION'],PASS,100.0,PASS
+region,['great job'],FAIL,33.33333333333333,FAIL,['REGION'],PASS,100.0,PASS
+slumber,['slumber'],PASS,100.0,PASS,"['SLUMBER', '']",PASS,100.0,PASS
+slumber,['slumber'],PASS,100.0,PASS,['SLUMBER'],PASS,100.0,PASS
+slumber,['slumber'],PASS,100.0,PASS,['SLOMBER'],FAIL,100.0,PASS
+future,"['the', 'future', 'your future', '', 'the']",PASS,100.0,PASS,"['', 'FEW SURE', 'FEW SURE', '', '']",FAIL,50.0,FAIL
+future,['future'],PASS,100.0,PASS,['FUTURE'],PASS,100.0,PASS
+future,['future'],PASS,100.0,PASS,['FUTURE'],PASS,100.0,PASS
+claimed,['claim'],FAIL,75.0,PASS,['CLAIM'],FAIL,75.0,PASS
+claimed,['claim'],FAIL,75.0,PASS,['CLAIMED'],PASS,100.0,PASS
+claimed,['claim'],FAIL,75.0,PASS,['GLAIMED'],FAIL,100.0,PASS
+common,['common'],PASS,100.0,PASS,['CALM ONE'],FAIL,50.0,FAIL
+common,['come one'],FAIL,60.0,FAIL,['COMON'],FAIL,100.0,PASS
+common,['come on'],FAIL,60.0,FAIL,['CALM ONE'],FAIL,50.0,FAIL
+dainty,['damnit'],FAIL,75.0,PASS,"['DANITY', '']",FAIL,100.0,PASS
+dainty,['day nitty'],FAIL,75.0,PASS,"['VENITY', '']",FAIL,66.66666666666666,FAIL
+dainty,['day nitty'],FAIL,75.0,PASS,['DENITI'],FAIL,100.0,PASS
+cushion,['cushman'],FAIL,75.0,PASS,['GRISSHON'],FAIL,75.0,PASS
+cushion,['cushion'],PASS,100.0,PASS,['KUSSHON'],FAIL,100.0,PASS
+cushion,['kush'],FAIL,66.66666666666666,FAIL,['KUCHON'],FAIL,100.0,PASS
+generally,['january'],FAIL,75.0,PASS,"['GENERALTY', '']",FAIL,80.0,PASS
+generally,['generally'],PASS,100.0,PASS,['GENERALLY'],PASS,100.0,PASS
+generally,['generally'],PASS,100.0,PASS,['GENERALLY'],PASS,100.0,PASS
+extended,['extended'],PASS,100.0,PASS,['EXTENDED'],PASS,100.0,PASS
+extended,['extend'],FAIL,85.71428571428571,PASS,['EXTENDED'],PASS,100.0,PASS
+extended,['extend'],FAIL,85.71428571428571,PASS,['EXTENDED'],PASS,100.0,PASS
+custom,['close'],FAIL,25.0,FAIL,"['CUSTOM', '']",PASS,100.0,PASS
+custom,['custom'],PASS,100.0,PASS,['CUSTOM'],PASS,100.0,PASS
+custom,['costa'],FAIL,75.0,PASS,['CUSTOM'],PASS,100.0,PASS
+tailor,['taylor'],FAIL,100.0,PASS,['TELORE'],FAIL,100.0,PASS
+tailor,['taylor'],FAIL,100.0,PASS,['DALORE'],FAIL,100.0,PASS
+tailor,['they laugh'],FAIL,20.0,FAIL,['THEY LORE'],FAIL,50.0,FAIL
+haze,['hayes'],FAIL,66.66666666666666,FAIL,['HAYES'],FAIL,66.66666666666666,FAIL
+haze,['hayes'],FAIL,66.66666666666666,FAIL,['HIS'],FAIL,100.0,PASS
+haze,['hayes'],FAIL,66.66666666666666,FAIL,['HAS'],FAIL,100.0,PASS
+gracious,['gracious'],PASS,100.0,PASS,['GRACIOUS'],PASS,100.0,PASS
+gracious,['gracious'],PASS,100.0,PASS,['GRACIOUS'],PASS,100.0,PASS
+gracious,"['the', 'gracious', 'this', '', '', '', '', '', '', '', '', '', '', '', '', 'the', 'the', 'the', 'the', 'the', '', '', 'the', 'this', '']",PASS,100.0,PASS,"['', 'GRACIOUS', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'CHET', 'CHET']",PASS,100.0,PASS
