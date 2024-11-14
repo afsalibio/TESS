@@ -1,1 +1,0 @@
-"Test was conducted on 11/12/2024 with 6 participants. Results show the transcriptions of both Vosk and Wav2Vec. Results were then processed using jellyfish which gives a percentage representing how phonetically similar the results are with the test word: 70% and above indicating they are similar enough to pass." 
