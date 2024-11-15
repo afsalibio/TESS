@@ -33,15 +33,39 @@ TESS will take note of the following information:
 This information is used to generate the excel report after the test is finished. TESS does not save this data after the completion of the test.
 
 \section{Developing TESS}
-TESS is developed using Python and a voice recognition software. We are currently testing which software is the most optimal for TESS and will choose amongst the following choices:
+TESS is developed using Python and a voice recognition software.
+The three main choices for our voice recognition software are the following:
 \begin{enumerate}
 \item Vosk,
 \item Wav2Vec, and
 \item Whisper
 \end{enumerate}
-
+These software were chosen because all three are open source software and do not require any payment to keep it running.
 The program is also designed to work on a computer with a dedicated headset and microphone.
 
+In order to determine which of the three to use, we developed a TESS prototype that can evaluate the voice input using all three software. We then conducted an informal test to see which of the three is most effective.
+
+However, Whisper was out of the running early on as it was unable to be run quickly enough to use in real time. This left Vosk and Wav2Vec to be tested.
+
+After further research we decided to use Vosk. Vosk was chosen because of the following advantages:
+\begin{enumerate}
+\item Offline Capability,
+\item Lightweight and Fast,
+\item Customizable Models,
+\item Open-Source, and 
+\item Cost-Effective.
+\end{enumerate}
+
+Although, Vosk does have a few disadvantages. Most notably, it has difficulty dealing with the following:
+\begin{enumerate}
+    \item Accuracy with Complex Speech,
+    \item Limited Support for Certain Accents, or Dialects
+    \item Limited Context Understanding.
+\end{enumerate}
+
+In order to further improve Vosk’s accuracy in dealing with complex speech as well as to deal with accented English, Jellyfish was used in the post-processing. Jellyfish compares two strings to see how phonetically close they are.
+
+The program is also designed to work on a computer with a dedicated headset and microphone.
 \section{Testing the Program}
 TESS will be tested at the Iloilo City National High School with a group of ten (10) students within the Remedial Reading Program.
 
