@@ -17,3 +17,4 @@ pip install numpy sounddevice pillow scipy vosk openpyxl jellyfish
 ## Notes (12/9/2024)
 - Post processing of audio has not yet been implemented due to the long processing time.
 - UI are simply placeholders.
+- Model used is vosk-model-en-us-0.22; https://alphacephei.com/vosk/models
