@@ -79,7 +79,8 @@ class StartPage(ttk.Frame):
         self.fname = tk.StringVar()
         self.lname = tk.StringVar()
         self.schl = tk.StringVar()
-
+        self.instructor_name = tk.StringVar()
+        self.instructor_id = tk.StringVar()
 
         logo_label = tk.Label(self, image = self.logo, bg="#ffffff", anchor = tk.CENTER)
         banner_label = tk.Label(self, text="Input Student Information", bg = "#ffffff", font = ("Arial", 20, "bold"), anchor = tk.CENTER)
@@ -89,6 +90,10 @@ class StartPage(ttk.Frame):
         self.lname_input = ttk.Entry(self, textvariable=self.lname, style = 'TEntry')
         school_label = ttk.Label(self, text="School : ", style = 'TLabel')
         self.school_input = ttk.Entry(self, textvariable=self.schl, style = 'TEntry')
+        instructor_name_label = ttk.Label(self, text="Instructor Name: ", style='TLabel')
+        self.instructor_name_input = ttk.Entry(self, textvariable=self.instructor_name, style='TEntry')
+        instructor_id_label = ttk.Label(self, text="Instructor ID: ", style='TLabel')
+        self.instructor_id_input = ttk.Entry(self, textvariable=self.instructor_id, style='TEntry')
         self.register_bttn = ttk.Button(self, text="REGISTER", style = 'TButton', state = 'disabled', command = lambda: [self.create_student_data(), parent.fetch_new_frame(self, PageOne)])
 
         logo_label.grid(row = 0, column = 0, columnspan = 4, rowspan = 3, sticky = tk.W+tk.E+tk.N+tk.S, pady = 10, padx = 10)
@@ -99,11 +104,17 @@ class StartPage(ttk.Frame):
         self.lname_input.grid(row = 4, column = 3, sticky = tk.W+tk.E+tk.N+tk.S, pady = 5, padx = 10)
         school_label.grid(row = 6, column = 0, sticky = tk.W+tk.E, pady = 5, padx = 10)
         self.school_input.grid(row = 6, column = 1, columnspan = 3, sticky = tk.W+tk.E+tk.N+tk.S, pady = 5, padx = 10)
-        self.register_bttn.grid(row = 7, column = 0, columnspan = 4, sticky = tk.W+tk.E, pady = 20, padx = 10)
+        instructor_name_label.grid(row=8, column=0, sticky=tk.W+tk.E, pady=5, padx=10)
+        self.instructor_name_input.grid(row=8, column=1, columnspan = 3, sticky=tk.W+tk.E+tk.N+tk.S, pady=5, padx=10)
+        instructor_id_label.grid(row=9, column=0, sticky=tk.W+tk.E, pady=5, padx=10)
+        self.instructor_id_input.grid(row=9, column=1, columnspan = 3, sticky=tk.W+tk.E+tk.N+tk.S, pady=5, padx=10)
+        self.register_bttn.grid(row = 10, column = 0, columnspan = 4, sticky = tk.W+tk.E, pady = 20, padx = 10)
 
         self.fname.trace('w', self.enable_button)
         self.lname.trace('w', self.enable_button)
         self.schl.trace('w', self.enable_button)
+        self.instructor_name.trace('w', self.enable_button)
+        self.instructor_id.trace('w', self.enable_button)
 
         self.pack(fill = tk.BOTH, expand = 1, padx = 20, pady = 20)
 
@@ -200,14 +211,22 @@ class PageTwo(ttk.Frame):
         style.configure("yellow.Horizontal.TProgressBar",
                         troughcolor = "yellow",
                         background = "yellow")
+        style.configure('Yellow.TButton', 
+                        background='yellow', 
+                        foreground='black')
+        style.configure('Red.TButton', 
+                        background='red', 
+                        foreground='white')
 
         self.rowconfigure(0, weight = 1)
         self.rowconfigure(1, weight = 1)
         self.rowconfigure(2, weight = 1)
         self.rowconfigure(3, weight = 1)
+        self.rowconfigure(4, weight = 1)
         self.columnconfigure(0, weight = 1)
         self.columnconfigure(1, weight = 1)
         self.columnconfigure(2, weight = 1)
+        self.columnconfigure(3, weight = 1)
         self.columnconfigure(3, weight = 1)
 
         self.logo = ImageTk.PhotoImage(logo)
@@ -215,10 +234,15 @@ class PageTwo(ttk.Frame):
         self.ins_label = ttk.Label(self, text = "Read the word below: ", font = ("Arial", 30), style = "TLabel")
         self.word = ttk.Label(self, text = "WORD", font = ("Arial", 50, "bold"), anchor = tk.CENTER, borderwidth = 10, style = "TLabel")
         self.progress = ttk.Progressbar(self, style = 'yellow.Horizontal.TProgressbar', orient = "horizontal", mode = "determinate", maximum=200, value=0)
+        self.skip_button = ttk.Button(self, text="Skip", style='Yellow.TButton', command=self.skip_test)
+        self.stop_button = ttk.Button(self, text="Stop", style='Red.TButton', command=self.stop_test)
 
         self.ins_label.grid(row = 0, column = 0, columnspan = 4, sticky = tk.W+tk.E+tk.N+tk.S, pady = 20, padx = 20)
         self.word.grid(row = 1, column = 0, columnspan = 4, rowspan = 2, sticky = tk.W+tk.E+tk.N+tk.S, padx = 20)
-        self.progress.grid(row = 3, column = 0, columnspan = 4, sticky = tk.W+tk.E+tk.N+tk.S, pady = 20, padx = 20)
+        
+        self.skip_button.grid(row=3, column=1, sticky=tk.W+tk.E, pady=10, padx=10)
+        self.stop_button.grid(row=3, column=2, sticky=tk.W+tk.E, pady=10, padx=10)
+        self.progress.grid(row = 4, column = 0, columnspan = 4, sticky = tk.W+tk.E+tk.N+tk.S, pady = 20, padx = 20)
 
         self.pack(fill = tk.BOTH, expand = 1, padx = 20, pady = 20)
 
@@ -230,6 +254,12 @@ class PageTwo(ttk.Frame):
         self.parent.student.set_result(result)
         self.parent.fetch_new_frame(self, PageThree)
         return
+    
+    def skip_test(self):
+        print("Test skipped.")
+    
+    def stop_test(self):
+        print("Test stopped.")
 
 class PageThree(ttk.Frame):
     def __init__(self, parent):
