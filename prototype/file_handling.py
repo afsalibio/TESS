@@ -13,15 +13,16 @@ def get_reading_level(data):
 
     return round((decimal.Decimal(score) / decimal.Decimal(20)), 1) 
 
-def create_excel(fname, lname, school, data):
+def create_excel(student):
 
     if not os.path.isdir("ReadingAssessmentResults"):
 
         os.makedirs("ReadingAssessmentResults")
 
-    name = lname + ", " + fname
-    title = lname.upper() + fname.replace(" ","")
+    name = student.get_firstname() + ", " + student.get_lastname()
+    title = student.get_lastname().upper() + student.get_firstname().replace(" ","")
     headings = ["ListP", "List1", "List2", "List3", "List4", "List5", "List6", "List7", "List8", "ListHS"]
+    data = student.get_result()
     reading_level = get_reading_level(data)
 
     wb = Workbook()
@@ -30,14 +31,19 @@ def create_excel(fname, lname, school, data):
 
     ws.merge_cells('A2:E2')
     ws['A2'] = "Name: " + name
+    ws.merge_cells('G2:J2')
     ws['G2'] = "Reading Level: " + str(reading_level)
     ws.merge_cells('A3:E3')
-    ws['A3'] = "School: " + school
+    ws['A3'] = "School: " + student.get_school()
+    ws.merge_cells('A4:E4')
+    ws['A4'] = "Instructor: " + student.get_instructor()
+    ws.merge_cells('G4:J4')
+    ws['G4'] = "Instructor ID: " + student.get_instructorID()
     col = 1
     col2 = 1
     for i in range(len(headings)):
-        row = 5
-        if i < 5:        
+        row = 6
+        if i < 6:        
             ws.merge_cells(get_column_letter(col)+str(row)+":"+get_column_letter(col+1)+str(row))
             ws.merge_cells(get_column_letter(col)+str(row+1)+":"+get_column_letter(col+1)+str(row+1))
             ws[get_column_letter(col)+str(row)] = headings[i]

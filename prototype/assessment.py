@@ -76,6 +76,9 @@ class ReadingAssessment():
     except Exception as e:
         parser.exit(type(e).__name__ + ": " + str(e))
     
+    stop_requested = False
+    skip_requested = False
+    
     # Combined audio processing
     def post_process(self, data, samplerate):
         """Normalize, bandpass filter, and compress the audio data."""
@@ -104,6 +107,12 @@ class ReadingAssessment():
                     dtype="int16", channels=1, callback=self.callback):
                 self.rec = KaldiRecognizer(self.model, args.samplerate)
                 while True:
+                    if self.stop_requested == True:
+                        return "stop"  # Return STOP if button is clicked
+                    if self.skip_requested == True:
+                        self.skip_requested = False
+                        return "skip"  # Return SKIP if button is clicked
+                
                     data = self.q.get()
 
                     #processed_data = self.post_process(data, args.samplerate)
@@ -261,4 +270,13 @@ class ReadingAssessment():
         while True:
             result = self.listen_in()
             if "start" in result:
+                self.stop_requested = False
                 return
+            
+    def force_stop(self):
+        self.stop_requested = True
+        return
+    
+    def force_skip(self):
+        self.skip_requested = True
+        return

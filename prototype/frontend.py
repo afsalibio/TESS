@@ -7,8 +7,8 @@ from file_handling import create_excel
 from assessment import ReadingAssessment
 
 
-logo = Image.open('sample.png')
-logo = logo.resize((300, 300))
+logo = Image.open('TESS.png')
+logo = logo.resize((400, 400))
 
 class TessFrontEnd(tk.Tk, Student, ReadingAssessment):
 
@@ -19,7 +19,7 @@ class TessFrontEnd(tk.Tk, Student, ReadingAssessment):
         self.geometry("1000x700")
         self.minsize(1000, 700)
         self.maxsize(1000, 700)
-        self.title("Tess Reading Assessment")
+        self.title("TESS Reading Assessment")
         self.configure(bg = "#012b09")
 
         self.old_frame = ttk.Frame()
@@ -29,6 +29,11 @@ class TessFrontEnd(tk.Tk, Student, ReadingAssessment):
         old.destroy()
         
         return new(self)
+    
+    def reset(self):
+        self.student = Student()
+        self.test = ReadingAssessment()
+        return
 
 class StartPage(ttk.Frame):
 
@@ -47,16 +52,16 @@ class StartPage(ttk.Frame):
                         background = '#ffffff')
 
         style.configure('TButton', 
-                        font = ('Arial', 15, 'bold'), 
+                        font = ('Comic Sans MS', 15, 'bold'), 
                         borderwidth = 0, 
                         background = "#d4af37", 
                         foreground = "white")
         style.configure('TLabel',
-                        font = ("Arial", 15),
+                        font = ("Comic Sans MS", 15),
                         background = "#ffffff",
                         foreground = "black")
         style.configure('TEntry',
-                        font = ("Arial", 15),
+                        font = ("Comic Sans MS", 15),
                         borderwidth = 0,
                         fieldbackground = "#94bb86",
                         background = "#94bb86",
@@ -83,7 +88,7 @@ class StartPage(ttk.Frame):
         self.instructor_id = tk.StringVar()
 
         logo_label = tk.Label(self, image = self.logo, bg="#ffffff", anchor = tk.CENTER)
-        banner_label = tk.Label(self, text="Input Student Information", bg = "#ffffff", font = ("Arial", 20, "bold"), anchor = tk.CENTER)
+        banner_label = tk.Label(self, text="Input Student Information", bg = "#ffffff", font = ("Comic Sans MS", 20, "bold"), anchor = tk.CENTER)
         fname_label = ttk.Label(self, text="Firstname : ", style = 'TLabel')
         self.fname_input = ttk.Entry(self, textvariable=self.fname, style = 'TEntry')
         lname_label = ttk.Label(self, text="Lastname : ", style = 'TLabel')
@@ -124,7 +129,7 @@ class StartPage(ttk.Frame):
         self.lastname = self.lname_input.get()
         self.school = self.school_input.get()
 
-        self.parent.student.set_student_info(self.firstname, self.lastname, self.school)
+        self.parent.student.set_student_info(self.firstname, self.lastname, self.school, self.instructor_name, self.instructor_id)
 
         return 
 
@@ -172,8 +177,8 @@ class PageOne(ttk.Frame):
         fname = self.parent.student.get_firstname()
 
         logo_label = tk.Label(self, image = self.logo, bg="#ffffff", anchor = tk.CENTER)
-        message_label = tk.Label(self, text=("hi " + fname + "!"), bg = "#94bb86", font = ("Arial", 20, "bold"), anchor = tk.CENTER)
-        ins_label = tk.Label(self, text=("say \"START\" to begin assessment"), bg = "#94bb86", font = ("Arial", 20, "bold"), anchor = tk.CENTER)
+        message_label = tk.Label(self, text=("hi " + fname + "!"), bg = "#94bb86", font = ("Comic Sans MS", 20, "bold"), anchor = tk.CENTER)
+        ins_label = tk.Label(self, text=("say \"START\" to begin assessment"), bg = "#94bb86", font = ("Comic Sans MS", 20, "bold"), anchor = tk.CENTER)
 
         logo_label.grid(row = 0, column = 0, columnspan = 4, rowspan = 2, sticky = tk.W+tk.E+tk.N+tk.S, pady = 10, padx = 10)
         message_label.grid(row = 2, column = 0, columnspan = 4, sticky = tk.W+tk.E+tk.N+tk.S, pady = 10, padx = 20)
@@ -231,8 +236,8 @@ class PageTwo(ttk.Frame):
 
         self.logo = ImageTk.PhotoImage(logo)
 
-        self.ins_label = ttk.Label(self, text = "Read the word below: ", font = ("Arial", 30), style = "TLabel")
-        self.word = ttk.Label(self, text = "WORD", font = ("Arial", 50, "bold"), anchor = tk.CENTER, borderwidth = 10, style = "TLabel")
+        self.ins_label = ttk.Label(self, text = "Read the word below: ", font = ("Comic Sans MS", 30), style = "TLabel")
+        self.word = ttk.Label(self, text = "WORD", font = ("Comic Sans MS", 50, "bold"), anchor = tk.CENTER, borderwidth = 10, style = "TLabel")
         self.progress = ttk.Progressbar(self, style = 'yellow.Horizontal.TProgressbar', orient = "horizontal", mode = "determinate", maximum=200, value=0)
         self.skip_button = ttk.Button(self, text="Skip", style='Yellow.TButton', command=self.skip_test)
         self.stop_button = ttk.Button(self, text="Stop", style='Red.TButton', command=self.stop_test)
@@ -257,9 +262,13 @@ class PageTwo(ttk.Frame):
     
     def skip_test(self):
         print("Test skipped.")
+        self.parent.test.force_skip()
+        return
     
     def stop_test(self):
         print("Test stopped.")
+        self.parent.test.force_stop()
+        return
 
 class PageThree(ttk.Frame):
     def __init__(self, parent):
@@ -287,13 +296,13 @@ class PageThree(ttk.Frame):
 
         fname = self.parent.student.get_firstname()
 
-        que = threading.Thread(target = create_excel(fname, self.parent.student.get_lastname(), self.parent.student.get_school(), self.parent.student.get_result()))
+        que = threading.Thread(target = create_excel(self.parent.student))
         que.start()
 
         logo_label = tk.Label(self, image = self.logo, bg="#ffffff", anchor = tk.CENTER)
-        message_label = tk.Label(self, text=("Thank You " + fname + "!"), bg = "#94bb86", font = ("Arial", 20, "bold"), anchor = tk.CENTER)
-        ins_label = tk.Label(self, text=("Assessment Completed!"), bg = "#94bb86", font = ("Arial", 20, "bold"), anchor = tk.CENTER)
-        new_bttn = ttk.Button(self, text="Start New Test", style = 'TButton', command = lambda: parent.fetch_new_frame(self, StartPage))
+        message_label = tk.Label(self, text=("Thank You " + fname + "!"), bg = "#94bb86", font = ("Comic Sans MS", 20, "bold"), anchor = tk.CENTER)
+        ins_label = tk.Label(self, text=("Assessment Completed!"), bg = "#94bb86", font = ("Comic Sans MS", 20, "bold"), anchor = tk.CENTER)
+        new_bttn = ttk.Button(self, text="Start New Test", style = 'TButton', command = lambda: [parent.fetch_new_frame(self, StartPage), parent.reset()])
         
         new_bttn.grid(row = 4, column = 1, columnspan = 2, sticky = tk.W+tk.E, pady = 20, padx = 10)
         logo_label.grid(row = 0, column = 0, columnspan = 4, rowspan = 2, sticky = tk.W+tk.E+tk.N+tk.S, pady = 10, padx = 10)

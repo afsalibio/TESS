@@ -6,13 +6,17 @@ class Student:
         self.firstname = ""
         self.lastname = ""
         self.school = ""
+        self.instructor = ""
+        self.instructorID = ""
         self.result = []
 
-    def set_student_info(self, f, l, s):
+    def set_student_info(self, f, l, s, i, id):
 
         self.firstname = f.title()
         self.lastname = l.title()
         self.school = s.title()
+        self.instructor = i.title()
+        self.instructorID = id.title()
 
         return
 
@@ -31,3 +35,9 @@ class Student:
 
     def get_result(self):
         return self.result 
+    
+    def get_instructor(self):
+        return self.instructor 
+    
+    def get_instructorID(self):
+        return self.instructorID 
