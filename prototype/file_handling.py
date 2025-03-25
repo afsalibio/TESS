@@ -1,7 +1,7 @@
 import os
 import decimal
 
-from openpyxl import Workbook, load_workbook
+from openpyxl import Workbook
 from openpyxl.styles import Font
 from openpyxl.utils import get_column_letter
 from datetime import date
@@ -43,7 +43,7 @@ def create_excel(student):
     col2 = 1
     for i in range(len(headings)):
         row = 6
-        if i < 6:        
+        if i < 5:        
             ws.merge_cells(get_column_letter(col)+str(row)+":"+get_column_letter(col+1)+str(row))
             ws.merge_cells(get_column_letter(col)+str(row+1)+":"+get_column_letter(col+1)+str(row+1))
             ws[get_column_letter(col)+str(row)] = headings[i]

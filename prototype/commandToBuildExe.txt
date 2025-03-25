@@ -1,0 +1,6 @@
+pyinstaller --onefile --strip --noconsole --hidden-import=vosk ^
+    --name=TESS ^
+    --icon=TESS.png ^
+    --add-data "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\site-packages\vosk;vosk" ^
+    --add-data "TESS.png;." main.py
+

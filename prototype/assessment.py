@@ -1,15 +1,16 @@
 import argparse
 import queue
 import json
-import numpy as np
+#import numpy as np
 import sounddevice as sd
-import sys
 import time
+import winsound
+#import sys
 from vosk import KaldiRecognizer, Model
 import jellyfish
 import threading
-from file_handling import create_excel
-from audio_processing import normalize, bandpass_filter, compress
+#from file_handling import create_excel
+#from audio_processing import normalize, bandpass_filter, compress
 
 class ReadingAssessment():
     """docstring for Tess"""
@@ -26,8 +27,8 @@ class ReadingAssessment():
 
     def callback(self, indata, frames, time, status):
         """This is called (from a separate thread) for each audio block."""
-        if status:
-            print(status, file=sys.stderr)
+        #if status:
+            #print(status, file=sys.stderr)
         self.q.put(bytes(indata))
 
     parser = argparse.ArgumentParser(add_help=False)
@@ -36,7 +37,7 @@ class ReadingAssessment():
         help="show list of audio devices and exit")
     args, remaining = parser.parse_known_args()
     if args.list_devices:
-        print(sd.query_devices())
+        #print(sd.query_devices())
         parser.exit(0)
     parser = argparse.ArgumentParser(
         description=__doc__,
@@ -61,7 +62,7 @@ class ReadingAssessment():
             args.samplerate = int(device_info["default_samplerate"])
             
         if args.model is None:
-            model = Model(r"D:\Documents0\Alexa Files\PythonProject\TessResearch\Program\Models\vosk-model-en-us-0.22")
+            model = Model(r"models\vosk-model-en-us-0.22")
         else:
             model = Model(lang=args.model)
 
@@ -78,26 +79,28 @@ class ReadingAssessment():
     
     stop_requested = False
     skip_requested = False
+    paused = False
+    closing = False
     
     # Combined audio processing
-    def post_process(self, data, samplerate):
-        """Normalize, bandpass filter, and compress the audio data."""
-        print("post")
+    """def post_process(self, data, samplerate):
+        #Normalize, bandpass filter, and compress the audio data.
+        #print("post")
         # Normalize
         normalized_data = self.normalize(data)
-        print("normalize")
+        #print("normalize")
 
         # Apply bandpass filter
         filtered_data = self.bandpass_filter(normalized_data, lowcut=300, highcut=3400, samplerate=samplerate)
-        print("bandpass")
+        #print("bandpass")
         # Apply compression
         compressed_data = self.compress(filtered_data)
-        print("compressed")
+        #print("compressed")
 
         # Ensure data type is restored back to int16 for compatibility with other systems
         processed_data = (compressed_data * 32767).astype(np.int16)
 
-        return processed_data
+        return processed_data"""
     
     def listen_in(self):
         parser = self.parser 
@@ -107,6 +110,8 @@ class ReadingAssessment():
                     dtype="int16", channels=1, callback=self.callback):
                 self.rec = KaldiRecognizer(self.model, args.samplerate)
                 while True:
+                    while self.paused:
+                        time.sleep(0.1)
                     if self.stop_requested == True:
                         return "stop"  # Return STOP if button is clicked
                     if self.skip_requested == True:
@@ -122,7 +127,7 @@ class ReadingAssessment():
                         res = self.rec.Result()
                         res = json.loads(res)
                         fin = res.get("text", "")
-                        print (fin)
+                        #print (fin)
                         return(fin)
                     if self.dump_fn is not None:
                         self.dump_fn.write(data)
@@ -130,31 +135,74 @@ class ReadingAssessment():
         except Exception as e:
             parser.exit(type(e).__name__ + ": " + str(e))
 
-    def test_reading(self, testWord, display):
-
-        timeout = time.time() + 10
+    def test_reading(self, testWord, display, timer):
         tries = 1
         status = "ongoing"
+        limit = 20
+        timeout = time.time() + limit
+        paused_time = None
+
+        def update_timer():
+            nonlocal timeout, paused_time, status
+
+            if status != "ongoing":
+                return  # Stop updating if test ended
+
+            if self.paused:
+                if paused_time is None:
+                    paused_time = time.time()  # Store when pause started
+                timer.after(500, update_timer)  # Check again every 0.5s
+                return  # Stop further updates
+
+            if paused_time is not None:
+                # Correct timeout only when unpausing
+                timeout += time.time() - paused_time
+                paused_time = None  # Reset pause tracking
+
+            remaining = max(timeout - time.time(), 0)
+
+            if remaining > 0:
+                timer["value"] = (remaining / limit) * 100  # Update progress bar
+                timer.after(1000, update_timer)  # Continue updating every sec
+            else:
+                timer["value"] = 0  # Ensure timer stops
+                status = "stopped"  # Mark test as finished
+        
+        def flash_display():
+            original_color = display["background"]
+            display.configure(background="#d4af37")  # Change to gold
+            display.after(300, lambda: display.configure(background=original_color))  # Revert after 300ms
+        
+        threading.Thread(target=update_timer, daemon=True).start()
+        
         while status == "ongoing":
             result = self.listen_in()
+            winsound.Beep(1000, 200)
+            if result !="stop":
+                flash_display()
 
             if tries == 3 :
+                status = "stopped"
                 return("FAIL")
 
             else:
 
                 if time.time() > timeout:
+                    status = "stopped"
                     return("FAIL")
                 elif testWord in result:
+                    status = "stopped"
                     return("CORRECT")
                 elif "skip" in result:
+                    status = "stopped"
                     return("FAIL")
                 elif "stop" in result:
+                    status = "stopped"
                     return("STOP")
                 elif self.process_word(testWord,result) >= 60.0:
+                    status = "stopped"
                     return ("CORRECT")
 
-                display.configure(text = "("+str(tries)+") Try Again...")
                 tries = tries + 1
 
     def process_word(self, word, res):
@@ -221,7 +269,7 @@ class ReadingAssessment():
                 conDisplay.start()
 
                 # Perform the test and get the result
-                result_temp = self.test_reading(curr, display[0])
+                result_temp = self.test_reading(curr, display[0], display[2])
                 result[i] = result_temp
                 prog += 1
 
@@ -249,27 +297,19 @@ class ReadingAssessment():
                 final.extend(readingList[idx + 1:])  # Append remaining untested items
                 break  # Exit the loop as further tests should not be processed
             else:
-                # Test completed without hitting the stop condition
-                if num_score < 10:
-                    final.append(score)  # Add the score to the final list
-                else:
-                    # All items in this test are marked as "CORRECT"
-                    score = [20, test, ["CORRECT"] * 20]
-                    final.append(score)
+                final.append(score)
 
         return final
     
     def configure_objects(self, display, values):
-        display[0].configure(text = "Read The Word Below...")
-        display[1].configure(text = values[0])
-        display[2].configure(value = values[1])
+        display[0].configure(text = values[0])
+        display[1].configure(value = values[1])
         return
         
     def wait_for_start(self):
-
-        while True:
+        while not self.closing:
             result = self.listen_in()
-            if "start" in result:
+            if ("start" in result) or self.process_word("start",result) >= 60.0:
                 self.stop_requested = False
                 return
             
@@ -280,3 +320,16 @@ class ReadingAssessment():
     def force_skip(self):
         self.skip_requested = True
         return
+    
+    def force_pause(self):
+        self.paused = True
+        return
+    
+    def force_unpause(self):
+        self.paused = False
+        return
+    
+    def force_close(self):
+        self.stop_requested = True
+        self.paused = False
+        self.closing = True
