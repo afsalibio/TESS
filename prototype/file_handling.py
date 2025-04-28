@@ -48,7 +48,7 @@ def create_excel(student):
             ws.merge_cells(get_column_letter(col)+str(row+1)+":"+get_column_letter(col+1)+str(row+1))
             ws[get_column_letter(col)+str(row)] = headings[i]
             ws[get_column_letter(col)+str(row+1)] = data[i][0]
-            for x in range(1, 20):
+            for x in range(1, 21):
                 ws[get_column_letter(col)+str(row + x + 1)] = data[i][1][x-1]
                 ws[get_column_letter(col + 1)+str(row + x + 1)] = data[i][2][x-1]
             col = col + 2
@@ -58,7 +58,7 @@ def create_excel(student):
             ws.merge_cells(get_column_letter(col2)+str(row+1)+":"+get_column_letter(col2+1)+str(row+1))
             ws[get_column_letter(col2)+str(row)] = headings[i]
             ws[get_column_letter(col2)+str(row+1)] = data[i][0]
-            for x in range(1, 20):
+            for x in range(1, 21):
                 ws[get_column_letter(col2)+str(row + x + 1)] = data[i][1][x-1]
                 ws[get_column_letter(col2 + 1)+str(row + x + 1)] = data[i][2][x-1]
             col2 = col2 + 2
