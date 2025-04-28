@@ -5,7 +5,7 @@ a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[],
-    datas=[('C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\vosk', 'vosk'), ('TESS.png', '.')],
+    datas=[('C:\\Users\\marit\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\vosk', 'vosk'), ('TESS.png', '.')],
     hiddenimports=['vosk'],
     hookspath=[],
     hooksconfig={},

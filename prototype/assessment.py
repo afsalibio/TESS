@@ -163,10 +163,10 @@ class ReadingAssessment():
 
             if remaining > 0:
                 timer["value"] = (remaining / limit) * 100  # Update progress bar
-                timer.after(1000, update_timer)  # Continue updating every sec
+                timer.after(500, update_timer)  # Faster updates to reduce lag
             else:
                 timer["value"] = 0  # Ensure timer stops
-                status = "stopped"  # Mark test as finished
+                self.force_skip()
         
         def flash_display():
             original_color = display["background"]
@@ -177,8 +177,9 @@ class ReadingAssessment():
         
         while status == "ongoing":
             result = self.listen_in()
-            winsound.Beep(1000, 200)
-            if result !="stop":
+
+            if "stop" not in result:
+                winsound.Beep(1000, 200)
                 flash_display()
 
             if tries == 3 :
@@ -186,11 +187,7 @@ class ReadingAssessment():
                 return("FAIL")
 
             else:
-
-                if time.time() > timeout:
-                    status = "stopped"
-                    return("FAIL")
-                elif testWord in result:
+                if testWord in result:
                     status = "stopped"
                     return("CORRECT")
                 elif "skip" in result:
@@ -199,7 +196,7 @@ class ReadingAssessment():
                 elif "stop" in result:
                     status = "stopped"
                     return("STOP")
-                elif self.process_word(testWord,result) >= 60.0:
+                elif self.process_word(testWord,result.replace(" ", "")) >= 70.0:
                     status = "stopped"
                     return ("CORRECT")
 

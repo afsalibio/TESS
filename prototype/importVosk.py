@@ -1,7 +1,4 @@
-from PIL import Image
+import vosk
+import os
 
-# Open the image
-img = Image.open("TESS.png")
-
-# Convert and save as .ico
-img.save("TESS.ico", format="ICO")
+print("Vosk module path:", os.path.dirname(vosk.__file__))

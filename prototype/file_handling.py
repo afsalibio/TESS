@@ -19,11 +19,11 @@ def create_excel(student):
 
         os.makedirs("ReadingAssessmentResults")
 
-    name = student.get_firstname() + ", " + student.get_lastname()
-    title = student.get_lastname().upper() + student.get_firstname().replace(" ","")
-    headings = ["ListP", "List1", "List2", "List3", "List4", "List5", "List6", "List7", "List8", "ListHS"]
     data = student.get_result()
     reading_level = get_reading_level(data)
+    name = student.get_firstname() + ", " + student.get_lastname()
+    title = f"{reading_level}_" + student.get_lastname().upper() + student.get_firstname().replace(" ","")
+    headings = ["ListP", "List1", "List2", "List3", "List4", "List5", "List6", "List7", "List8", "ListHS"]
 
     wb = Workbook()
     ws = wb.active
